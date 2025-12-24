@@ -29,8 +29,9 @@ function Home() {
                 key={dt.id}
                 className='grid h-full border p-3 [&>button]:bg-red-400 gap-2
                 [&>button]:text-white [&>button]:py-2'>
-              <img src={dt.image} alt="product image" 
-                className='aspect-square'/>
+              <Link to={`/product/${dt.id}`}>
+                <img src={dt.image} className='aspect-square'/>
+              </Link>
               <span
                 className='max-h-5'>{dt.title}</span>  
               <button
