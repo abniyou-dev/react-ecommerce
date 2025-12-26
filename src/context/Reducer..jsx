@@ -1,8 +1,13 @@
+import { useEffect } from "react";
+
 export const initailValue = {
   items: [],
   wichlist: [],
-  total: 0,
+  totalPrice: 0,
+  totalItems: 0
 };
+
+
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -25,15 +30,25 @@ export const reducer = (state, action) => {
       
     }
     case "ADDWICHLIST": {
+      const exist = state.wichlist.some((it) => it.id === action.payload.id);
+      if (exist) {
+        return state
+      }
       return {
         ...state,
-        wichlist: [...state.wichlist, action.payload],
-      };
+        wichlist: [...state.wichlist, action.payload]
+      }
     }
     case "REMOVE": {
       return {
         ...state,
         items: state.items.filter((pr) => pr.id !== action.payload),
+      };
+    }
+    case "REMOVEWISHLIST": {
+      return {
+        ...state,
+        wichlist: state.wichlist.filter((pr) => pr.id !== action.payload),
       };
     }
     case "INCREMENT": {
@@ -65,3 +80,5 @@ export const reducer = (state, action) => {
     }
   }
 };
+
+

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Home() {
 
-  const url = "https://fakestoreapi.com/products?limit=10";
+  const url = "https://fakestoreapi.com/products?limit=11";
 
   const [data, setData] = useState([]);
   const {state, dispatch} = useCart();
