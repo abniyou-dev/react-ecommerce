@@ -12,7 +12,11 @@ function Cart() {
           <li key={item.id} className="flex items-center border p-3 ">
             <div className="flex gap-4 flex-1">
               <img src={item.image} alt="" className="size-20" />
-              <span>{item.title}</span>
+              <div
+                className="grid">
+                <span>{item.title}</span>
+                <span>{item.price}</span>
+              </div>
             </div>
             <div className="flex items-center gap-5 ">
               <div className="flex items-center gap-2">
@@ -41,6 +45,7 @@ function Cart() {
         ))}
       </ul>
       <span className="block p-4">Total Items : {state.totalItems}</span>
+      <span className="block p-4">Total Price : {state.totalPrice}$</span>
     </div>
   );
 }
